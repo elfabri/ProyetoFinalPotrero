@@ -153,6 +153,7 @@ footer {
 
 .navhis{
     background-color: var(--color-four);
+    user-select: none;
 }
 
 
@@ -373,4 +374,32 @@ fieldset legend{
         position: unset;
     }
 
+}
+
+.desplegable {
+    display: none;
+    color: white;
+}
+
+.desplegar {
+    animation-name: desplegarAnim;
+    animation-duration: 2s;
+    display: block;
+    height: 400px;
+}
+
+.contraer {
+    animation-name: contraerAnim;
+    animation-duration: 2s;
+    height: 0;
+}
+
+@keyframes desplegarAnim {
+    from {height: 0;}
+    to {height: 400px;}
+}
+
+@keyframes contraerAnim {
+    from {height: 400px;}
+    to {height: 0;}
 }

@@ -49,14 +49,89 @@
         </div>
         <nav class="navhis">
             <ul>
-                <li><a href="../../Index.html">Campeones</a></li>
-                <li><a href="calendario.html">Escuderias campeonas</a></li>
-                <li><a href="Reglamento.html">Circuitos históricos</a></li>
+                <li id="campBtn"><a>Campeones</a></li>
+                <li id="escBtn"><a>Escuderias campeonas</a></li>
+                <li id="circBtn"><a>Circuitos históricos</a></li>
             </ul>
+            <div class="desplegable">Circuitos desplegable</div>
         </nav>
     </main>
     <footer>
         <p>&copy; 2024 Santiago Villarreal. F1 Cuyana. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        let campBtn;
+        let escBtn;
+        let circBtn;
+        let desplegable;
+        let opciones = "";
+        let mostrandoInfo = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('a');
+            campBtn = document.querySelector("#campBtn");
+            escBtn = document.querySelector("#escBtn");
+            circBtn = document.querySelector("#circBtn");
+            desplegable = document.querySelector(".desplegable");
+            initBtns();
+        })
+        
+        function initBtns() {
+            console.log("init btns");
+            campBtn.addEventListener('click', () => {
+                if (opciones == "campeones") {
+                    opciones = "";
+                    ocultarInfo();
+                } else {
+                    opciones = "campeones";
+                    mostrarInfo();
+                }
+            })
+            escBtn.addEventListener('click', () => {
+                if (opciones == "escuderias") {
+                    opciones = "";
+                    ocultarInfo();
+                } else {
+                    opciones = "escuderias";
+                    mostrarInfo();
+                }
+            })
+            circBtn.addEventListener('click', () => {
+                if (opciones == "circuitos") {
+                    opciones = "";
+                    ocultarInfo();
+                } else {
+                    opciones = "circuitos";
+                    mostrarInfo();
+                }
+            })
+        }
+
+        function mostrarInfo() {
+            desplegable.classList.add("desplegar");
+            desplegable.classList.remove("contraer");
+            switch (opciones) {
+                case "campeones":
+                    desplegable.innerHTML = "Información de campeones";
+                    break;
+                case "escuderias":
+                    desplegable.innerHTML = "Información de escuderias";
+                    break;
+                case "circuitos":
+                    desplegable.innerHTML = "Información de circuitos";
+                    break;
+            }
+            mostrandoInfo = true;
+        }
+
+        function ocultarInfo() {
+            if (mostrandoInfo) {
+                desplegable.innerHTML = "";
+                desplegable.classList.add("contraer");
+                desplegable.classList.remove("desplegar");
+                mostrandoInfo = false;
+            }
+        }
+    </script>
 </body>
 </html>
