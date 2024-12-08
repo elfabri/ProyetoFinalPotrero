@@ -411,7 +411,7 @@ fieldset legend{
 }
 
 .desplegable {
-    display: none;
+    height: 0;
     color: white;
 }
 
